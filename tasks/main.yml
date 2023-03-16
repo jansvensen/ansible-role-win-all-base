@@ -1,0 +1,41 @@
+---
+- name: Update PowerShell help content
+  ansible.windows.win_powershell:
+    script: |
+      update-help
+
+- name: Create files directory
+  ansible.windows.win_file:
+    path: c:\files
+    state: directory
+
+- name: Copy wallpaper to files directory
+  ansible.builtin.copy:
+    src: files/dT_Wallpaper.png
+    dest: c:\files\dT_Wallpaper.png
+
+- name: set hostname
+  win_hostname:
+    name: "{{ hostname }}"
+  register: win_hostname
+
+- name: reboot if set hostname requires it
+  win_reboot:
+    post_reboot_delay: 10
+    pre_reboot_delay: 15
+  when: win_hostname.reboot_required
+
+- name: Get-WinUserLanguageList
+  win_shell: |
+    $test = (Get-WinUserLanguageList)[0].LanguageTag
+    Write-Host $test
+  register: language_tag
+  changed_when: False
+
+- debug:
+    var: language_tag.stdout
+
+- name: Set-WinUserLanguageList
+  win_shell: |
+    Set-WinUserLanguageList -Languagelist '{{ win_user_language }}' -Force
+  when: language_tag.stdout is not match(win_user_language)
