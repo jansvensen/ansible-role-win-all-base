@@ -11,8 +11,8 @@
 
 - name: Copy wallpaper to files directory
   ansible.builtin.copy:
-    src: files/dT_Wallpaper.png
-    dest: c:\files\dT_Wallpaper.png
+    src: files/Wallpaper.png
+    dest: c:\files\Wallpaper.png
 
 - name: set hostname
   win_hostname:
