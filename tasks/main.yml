@@ -19,12 +19,6 @@
     name: "{{ hostname }}"
   register: win_hostname
 
-- name: reboot if set hostname requires it
-  win_reboot:
-    post_reboot_delay: 10
-    pre_reboot_delay: 15
-  when: win_hostname.reboot_required
-
 - name: Get-WinUserLanguageList
   win_shell: |
     $test = (Get-WinUserLanguageList)[0].LanguageTag
@@ -39,3 +33,8 @@
   win_shell: |
     Set-WinUserLanguageList -Languagelist '{{ win_user_language }}' -Force
   when: language_tag.stdout is not match(win_user_language)
+
+- name: reboot
+  win_reboot:
+    post_reboot_delay: 10
+    pre_reboot_delay: 15
