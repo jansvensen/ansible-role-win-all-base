@@ -26,13 +26,9 @@
   register: language_tag
   changed_when: False
 
-- debug:
-    var: language_tag.stdout
-
 - name: Set-WinUserLanguageList
   win_shell: |
     Set-WinUserLanguageList -Languagelist '{{ win_user_language }}' -Force
-  when: language_tag.stdout is not match(win_user_language)
 
 - name: reboot
   win_reboot:
