@@ -1,5 +1,4 @@
-ansible-role-win-all-base
-=========
+# ansible-role-win-all-base
 
 This role base-configures a Windows system to create a test remoting environment on. Functions may change, so check for updated versions. The role includes (for now):
 
@@ -8,29 +7,23 @@ This role base-configures a Windows system to create a test remoting environment
 - Setting the machine's hostname
 - Configuring the language list
 
-Requirements
+## Requirements
 
-------------
 None
 
-Role Variables
-
---------------;
+## Role Variables
 
 - hostname: The computer's hostname
 - win_user_language: The desired user language (e.g. "en-US")
 
-Dependencies
+## Dependencies
 
-------------
 none
 
-License
+## License
 
--------;
 MIT
 
-Author Information
+## Author Information
 
-------------------;
 Sven Jansen, github(at)jansvensen.de
