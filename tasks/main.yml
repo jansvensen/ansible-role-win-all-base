@@ -10,10 +10,10 @@
     path: c:\files
     state: directory
 
-- name: Copy wallpaper to files directory
+- name: Copy local files to remote files directory
   ansible.builtin.copy:
-    src: files/Wallpaper.png
-    dest: c:\files\Wallpaper.png
+    src: files/*
+    dest: c:\files\
 
 - name: set hostname
   win_hostname:
