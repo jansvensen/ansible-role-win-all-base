@@ -9,7 +9,7 @@ This role base-configures a Windows system to create a test remoting environment
 
 ## Requirements
 
-None
+- None
 
 ## Role Variables
 
@@ -18,12 +18,12 @@ None
 
 ## Dependencies
 
-none
+- none
 
 ## License
 
-MIT
+- MIT
 
 ## Author Information
 
-Sven Jansen, github(at)jansvensen.de
+- Sven Jansen, github(at)jansvensen.de
