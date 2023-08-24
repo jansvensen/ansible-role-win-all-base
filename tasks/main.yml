@@ -12,7 +12,7 @@
 
 - name: Copy local files to remote files directory
   ansible.builtin.copy:
-    src: files/*
+    src: files/
     dest: c:\files\
 
 - name: set hostname
@@ -31,4 +31,3 @@
   win_shell: |
     Set-WinUserLanguageList -Languagelist '{{ win_user_language }}' -Force
   notify: reboot
-  
