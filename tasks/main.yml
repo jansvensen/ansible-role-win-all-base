@@ -32,3 +32,4 @@
   win_shell: |
     Set-WinUserLanguageList -Languagelist '{{ win_user_language }}' -Force
   notify: reboot
+  when: win_user_language is defnied
