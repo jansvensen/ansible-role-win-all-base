@@ -19,6 +19,7 @@
   win_hostname:
     name: "{{ hostname }}"
   notify: reboot
+  when: hostname is defined
 
 - name: Get-WinUserLanguageList
   win_shell: |
