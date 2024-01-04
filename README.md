@@ -14,7 +14,7 @@ This role base-configures a Windows system to create a test remoting environment
 ## Role Variables
 
 - hostname: The computer's hostname
-- win_user_language: The desired user language (e.g. "en-US")
+- win.user.language: The desired user language (e.g. "en-US")
 
 ## Dependencies
 

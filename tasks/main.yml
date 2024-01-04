@@ -30,5 +30,5 @@
 
 - name: Set-WinUserLanguageList
   win_shell: |
-    Set-WinUserLanguageList -Languagelist '{{ win_user_language }}' -Force
+    Set-WinUserLanguageList -Languagelist '{{ win.user.language }}' -Force
   notify: reboot
